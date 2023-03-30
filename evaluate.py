@@ -18,3 +18,10 @@ def evaluate_model(dataX, dataY, n_folds=5):
  scores.append(acc)
  histories.append(history)
  return scores, histories
+# summarize model performance
+def summarize_performance(scores):
+ # print summary
+ print('Accuracy: mean=%.3f std=%.3f, n=%d' % (mean(scores)*100, std(scores)*100, len(scores)))
+ # box and whisker plots of results
+ pyplot.boxplot(scores)
+ pyplot.show()
