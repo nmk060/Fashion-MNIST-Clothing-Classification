@@ -25,3 +25,18 @@ def summarize_performance(scores):
  # box and whisker plots of results
  pyplot.boxplot(scores)
  pyplot.show()
+# run the test harness for evaluating a model
+def run_test_harness():
+ # load dataset
+ trainX, trainY, testX, testY = load_dataset()
+ # prepare pixel data
+ trainX, testX = prep_pixels(trainX, testX)
+ # evaluate model
+ scores, histories = evaluate_model(trainX, trainY)
+ # learning curves
+ summarize_diagnostics(histories)
+ # summarize estimated performance
+ summarize_performance(scores)
+ 
+# entry point, run the test harness
+run_test_harness()
